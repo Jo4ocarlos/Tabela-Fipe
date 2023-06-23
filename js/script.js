@@ -97,7 +97,7 @@ function iniciar() {
     const codigoMarca = selectMarca.value;
     if (codigoMarca !== "") {
       preencherModelos(codigoMarca);
-      
+      document.getElementById("resultado").style.display= "none";
     } else {
       selectModelo.innerHTML = "<option value=''>Selecione o Modelo</option>";
       selectAno.innerHTML = "<option value=''>Selecione o Ano</option>";
