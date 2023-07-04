@@ -45,6 +45,7 @@ button {
     background-color: gray;
     font-weight: bolder;
     color: white;
+    cursor: pointer;
 }
   
 #resultado {
