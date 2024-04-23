@@ -1,4 +1,3 @@
-
 // Função para preencher as opções do select de marcas
 function preencherMarcas() {
   fetch("https://parallelum.com.br/fipe/api/v1/carros/marcas")
@@ -15,6 +14,7 @@ function preencherMarcas() {
     .catch(error => {
       console.error(error);
     });
+   
     
 }
 
@@ -54,9 +54,7 @@ function preencherAnos(codigoMarca, codigoModelo) {
         option.text = ano.nome.slice(0,5);
         selectAno.appendChild(option);
       });
-  
       selectAno.style.display = "block";
-     
     })
     .catch(error => {
       console.error(error);
@@ -82,6 +80,7 @@ function buscarValor(codigoMarca, codigoModelo, codigoAno) {
     });
  
 }
+
 
 // Função para inicializar a aplicação
 function iniciar() {
@@ -112,6 +111,7 @@ function iniciar() {
       preencherAnos(codigoMarca, codigoModelo);
     } else {
       selectAno.innerHTML = "<option value=''>Selecione o Ano</option>";
+      
     }
   });
 
@@ -138,6 +138,24 @@ function iniciar() {
     }
   });
 }
+
+// componentes do modal
+const closeModal = document.querySelector(".close");
+const modalArea = document.querySelector(".modal-area");
+
+// Função para fechar o modal
+const fecharModal = () => {
+    modalArea.classList.add("hide");
+};
+
+// Adicionando evento de clique no botão de fechar
+closeModal.addEventListener("click", () => {
+    fecharModal();
+});
+
+// Fechar o modal após 9 segundos
+setTimeout(fecharModal, 9000);
+
 
 // Inicializar a aplicação quando o documento estiver pronto
 document.addEventListener("DOMContentLoaded", iniciar);
